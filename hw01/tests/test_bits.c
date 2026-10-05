@@ -72,6 +72,21 @@ int main(void)
     );
 
 
+    /* print_binary tests */
+    printf("PASS: print_binary width 1 - expected: 1, got: ");
+    print_binary(1u, 1);
+    tests_run++;
+
+    printf("PASS: print_binary normal - expected: 0010 1100, got: ");
+    print_binary(0x2Cu, 8);
+    tests_run++;
+
+    printf("PASS: print_binary width 32 - expected: "
+           "0001 0010 0011 0100 0101 0110 0111 1000, got: ");
+    print_binary(0x12345678u, 32);
+    tests_run++;
+
+
     /* set_field tests */
     test_uint32(
         "set_field normal",
