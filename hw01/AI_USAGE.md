@@ -1,12 +1,12 @@
 I used ChatGPT to help me understand the homework requirements and learn how the bit manipulation functions work.
-I used AI help to better understand:
 
-- how `get_field()` uses shifting and masking
-- how `set_field()` clears and replaces bits
-- the difference between `&`, `&&`, `|`, and `||`
-- how `i--` works in a loop
-- how `sign_extend()` works
-- why `width == 32` needs to be handled separately
+I used AI help to better understand:
+- how get_field() uses shifting and masking
+- how set_field() clears and replaces bits
+- the difference between &, &&, |, and ||
+- how i-- works in a loop
+- how sign_extend() works
+- why width == 32 needs to be handled separately
 - how to debug compiler errors
 - how to create and run tests
 - how to make and use a Makefile
