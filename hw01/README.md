@@ -24,6 +24,8 @@ I also ran into several syntax errors while working on the homework. One issue w
 
 For testing, I tested normal cases along with edge cases. I tested a width of 1, a width of 32, position 31, a value that was too wide for its field, positive and negative sign extension, the most negative 8-bit signed value, and multiple thermostat status words. I also tested the required 0x1631 thermostat example.
 
+The thermostat mode field is stored in the status.mode. Modes zero through 4 are valid. If status.mode contains 5, 6, or 7, then it shows as an invalid thermostat mode. The reserved bit is stored in status.reserved and should normally be 0.
+
 To compile the homework I can use:
 
 make
