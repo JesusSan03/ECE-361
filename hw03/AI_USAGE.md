@@ -1,11 +1,11 @@
-# AI Usage — HW03
+How I Used AI
 
-Tool used: ChatGPT.
+I used ChatGPT to help me understand pointers in C and how they work with arrays. I also used it to help with some of the functions and to understand what the code was doing.
 
-Purpose: Helped draft the pointer function implementations, test cases, Makefile,
-and README, and explain pointer arithmetic.
+    AI Mistake
 
-Model mistake: [Fill in one real mistake you encountered and how you corrected it.
-Do not invent one. If none occurred, state that no specific error was observed.]
+One thing I had to check was if the code was using pointers instead of normal array indexing. The homework wanted us to use pointers, so I had to make sure the code followed that.
 
-I reviewed the generated code and ran the tests myself: [complete after testing].
+    What I Learned
+
+I learned more about how pointers work and how they can be used to change values in arrays. I also learned how to use pointers in functions.
