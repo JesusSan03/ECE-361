@@ -1,0 +1,6 @@
+door
+window
+door
+motion
+window
+door
