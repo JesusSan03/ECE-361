@@ -18,27 +18,36 @@ int main(void)
 
         size_t len = strlen(line);
 
+        /* Remove newline or detect an overlong line. */
         if (len > 0 && line[len - 1] == '\n') {
             line[len - 1] = '\0';
         } else if (len == sizeof(line) - 1) {
-            /* Handle an input line longer than the buffer. */
-            int ch;
-            while ((ch = getchar()) != '\n' && ch != EOF) {
+            int ch = getchar();
+
+            if (ch != '\n' && ch != EOF) {
+                while ((ch = getchar()) != '\n' && ch != EOF) {
+                }
+                skipped++;
+                continue;
             }
         }
 
+        /* Ignore empty lines and comments. */
         if (line[0] == '\0' || line[0] == '#') {
             continue;
         }
 
-        /* Count the event or record a refused event. */
+        /* Add the name, or count it as skipped. */
         if (tally_add(t, line) == -1) {
             skipped++;
         }
     }
 
+    /* Print names alphabetically with their counts. */
     tally_print(t, stdout);
-    printf("lines skipped: %d\n", skipped);
+
+    printf("names: %d, lines skipped: %d\n",
+           tally_size(t), skipped);
 
     tally_destroy(t);
 
