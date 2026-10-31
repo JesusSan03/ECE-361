@@ -36,6 +36,43 @@ If GOT2 points to an invalid state, the program could try to access something th
 Another example is if GOT2 cannot be reached. This would mean the correct combination could never finish, so the lock would not open.
 Missing entries can also cause problems because the program would not know what action to take.
 
+## Three Broken Table Examples
+
+**Example 1: Missing Action**
+
+I changed the CLOSE event in GOT1 so its action was A_UNDEFINED.
+
+Output:
+```
+undefined entry: GOT1 / CLOSE
+```
+
+This is a problem because every part of the table should have an action. Leaving one undefined means the lock might not behave correctly.
+
+**Example 2: Invalid State**
+
+I changed GOT2 so the RIGHT event goes to N_STATES, which is not a real state.
+
+Output:
+```
+out-of-range next state: GOT2 / RIGHT -> 4
+unreachable state: OPEN
+```
+
+This is a problem because the program could try to use a state that does not exist. It also means the lock cannot reach OPEN using the correct combination.
+
+**Example 3: State Cannot Be Reached**
+
+I changed GOT1 so the RIGHT event goes back to GOT1 instead of GOT2.
+
+Output:
+```
+unreachable state: GOT2
+unreachable state: OPEN
+```
+
+This is a problem because the program would never reach the last digit of the combination. Even when someone enters the correct code, the lock would not open.
+
 ## Conclusion
 The table checker is useful because it can find mistakes that might be hard to notice just by looking at the code.
 However, it cannot find every possible problem. For example, the table could have the wrong combination and still pass the checker.
