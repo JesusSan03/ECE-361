@@ -1,0 +1,8 @@
+start 1791273600
+# two keys and changes of sensor readings
+0 18.0 60 0x3
+1 18.0 60 0x3
+2 19.0 65 0x2
+4 20.0 70 0x6
+5 20.0 70 0x0
+6 21.0 80 0xF
