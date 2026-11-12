@@ -1,0 +1,9 @@
+# Rain interrupts zone 1 twice; each time zone 1 restarts.
+start 1791273600
+0 20.0 60.0 0x1
+1 20.0 60.0 0x0
+40 20.0 60.0 0x2
+50 20.0 60.0 0x0
+70 20.0 90.0 0x0
+80 20.0 89.9 0x0
+201 20.0 65.0 0x0

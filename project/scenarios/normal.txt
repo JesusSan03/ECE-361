@@ -1,0 +1,6 @@
+# A complete watering cycle is 480 ticks with no rain.
+start 1791273600
+0 18.0 60.0 0x0
+1 18.0 60.0 0x1
+2 18.0 60.0 0x0
+482 19.0 60.0 0x0

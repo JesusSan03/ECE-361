@@ -1,0 +1,40 @@
+# Unexpected inputs: switch changes in IDLE, ACTIVE, SOAK, RAIN_HOLD.
+# The humidity stays below 90, so switch 1 alone controls rain.
+start 1791273600
+# In IDLE, RAIN turns on/off (0 -> 2 -> 0), then START is pressed.
+0 18.0 60.0 0x0
+1 18.0 60.0 0x2
+2 18.0 60.0 0x0
+3 18.0 60.0 0x1
+# In ACTIVE, toggle START (it is ignored), then turn RAIN on.
+4 18.0 60.0 0x0
+5 18.0 60.0 0x1
+6 18.0 60.0 0x0
+7 18.0 60.0 0x2
+# In RAIN_HOLD, toggle START on/off while the rain stays on.
+8 18.0 60.0 0x3
+9 18.0 60.0 0x2
+# Turn off rain (it restarts interrupted zone 1).
+10 18.0 60.0 0x0
+# Another START press during ACTIVE must not reset its timer.
+11 18.0 60.0 0x1
+12 18.0 60.0 0x0
+# Zone 1 finishes at tick 130, and SOAK begins.
+# In SOAK, toggle START and then turn RAIN on.
+131 18.0 60.0 0x1
+132 18.0 60.0 0x0
+133 18.0 60.0 0x2
+# In RAIN_HOLD again, START changes but does not start a new cycle.
+134 18.0 60.0 0x3
+135 18.0 60.0 0x2
+136 18.0 60.0 0x0
+# Zone 2 starts at 136; cause another active rain hold.
+137 18.0 60.0 0x2
+138 18.0 60.0 0x0
+# Run long enough for zone 2, SOAK and zone 3 to finish.
+139 18.0 60.0 0x1
+140 18.0 60.0 0x0
+# Zone 2 ends 258, SOAK ends 318; zone 3 ends 438.
+# After the cycle IDLE accepts a new START press.
+439 18.0 60.0 0x1
+440 18.0 60.0 0x0

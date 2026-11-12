@@ -1,0 +1,11 @@
+2026-10-06 08:00:00 state=ZONE_ACTIVE temp=20.0 rh=89.9 leds=0x1 status=0x00000025
+2026-10-06 08:00:01 state=ZONE_ACTIVE temp=20.0 rh=89.9 leds=0x1 status=0x00000025
+2026-10-06 08:00:02 state=RAIN_HOLD temp=20.0 rh=90.0 leds=0x0 status=0x00000023
+2026-10-06 08:00:03 state=ZONE_ACTIVE temp=20.0 rh=89.9 leds=0x1 status=0x00000025
+2026-10-06 08:00:04 state=RAIN_HOLD temp=20.0 rh=90.1 leds=0x0 status=0x00000023
+2026-10-06 08:00:05 state=ZONE_ACTIVE temp=20.0 rh=89.8 leds=0x1 status=0x00000025
+2026-10-06 08:00:06 state=ZONE_ACTIVE temp=20.0 rh=89.8 leds=0x1 status=0x00000025
+2026-10-06 08:00:07 state=ZONE_ACTIVE temp=20.0 rh=89.8 leds=0x1 status=0x00000025
+2026-10-06 08:00:08 state=ZONE_ACTIVE temp=20.0 rh=89.8 leds=0x1 status=0x00000025
+2026-10-06 08:00:09 state=ZONE_ACTIVE temp=20.0 rh=89.8 leds=0x1 status=0x00000025
+2026-10-06 08:00:10 state=ZONE_ACTIVE temp=20.0 rh=89.8 leds=0x1 status=0x00000025

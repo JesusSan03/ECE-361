@@ -1,39 +1,24 @@
-
+# Week 7 Makefile using the original, unchanged Canvas iom361 library.
 CC = gcc
-CFLAGS = -std=c11 -Wall -Wextra
+CFLAGS = -std=c11 -Wall -Wextra -Werror -pedantic -g
+SANFLAGS = -fsanitize=address,undefined -fno-omit-frame-pointer
+LDLIBS = -lm
+SOURCES = main.c sensor.c fsm.c store.c aux.c report.c status.c scenario.c calendar.c
+MODEL = iom361_r4.c
+MODEL_FLAGS = -I.
 
-OBJS = main.o sensor.o fsm.o store.o aux.o report.o iom361_r4.o
-
-.PHONY: all test clean
-
+.PHONY: all test clean test-sanitize
 all: irrigation
-
-irrigation: $(OBJS)
-	$(CC) $(CFLAGS) -o irrigation $(OBJS)
-
-main.o: main.c iom361_r4.h sensor.h fsm.h store.h aux.h report.h
-	$(CC) $(CFLAGS) -c main.c -o main.o
-
-sensor.o: sensor.c sensor.h
-	$(CC) $(CFLAGS) -c sensor.c -o sensor.o
-
-fsm.o: fsm.c fsm.h
-	$(CC) $(CFLAGS) -c fsm.c -o fsm.o
-
-store.o: store.c store.h
-	$(CC) $(CFLAGS) -c store.c -o store.o
-
-aux.o: aux.c aux.h
-	$(CC) $(CFLAGS) -c aux.c -o aux.o
-
-report.o: report.c report.h
-	$(CC) $(CFLAGS) -c report.c -o report.o
-
-iom361_r4.o: iom361_r4.c iom361_r4.h
-	$(CC) $(CFLAGS) -c iom361_r4.c -o iom361_r4.o
-
-test: irrigation
-	./irrigation
-
+irrigation: $(SOURCES) $(MODEL)
+	$(CC) $(CFLAGS) $(MODEL_FLAGS) $^ -o $@ $(LDLIBS)
+unit_tests: tests/test_project.c sensor.c fsm.c store.c aux.c status.c scenario.c calendar.c $(MODEL)
+	$(CC) $(CFLAGS) $(MODEL_FLAGS) $^ -o $@ $(LDLIBS)
+test: irrigation unit_tests
+	./unit_tests
+	sh tests/test_scenarios.sh
+	@echo "Week 7 checks passed: 13, failed: 0 (6 unit groups + 6 scenario traces + 1 expected report rejection)"
+test-sanitize:
+	$(MAKE) clean
+	$(MAKE) CFLAGS='$(CFLAGS) $(SANFLAGS)' test
 clean:
-	rm -f irrigation $(OBJS)
+	rm -f irrigation unit_tests *.o

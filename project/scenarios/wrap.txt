@@ -1,0 +1,4 @@
+# 21 total readings > the buffer's 16 slots.
+start 1791273600
+0 18.0 60.0 0x0
+20 18.0 60.0 0x0
