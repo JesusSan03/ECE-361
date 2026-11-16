@@ -1,0 +1,17 @@
+
+=================================================================
+==627==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 24 byte(s) in 1 object(s) allocated from:
+    #0 0x7f11b6713c57 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x55af64bbcc9c in istack_create /mnt/data/hw07/istack.c:15
+    #2 0x55af64bbc4d8 in main /tmp/tmp.zZXxFdGmgo/balance_leak.c:35
+    #3 0x7f11b5e41ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+
+Indirect leak of 32 byte(s) in 1 object(s) allocated from:
+    #0 0x7f11b6713c57 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x55af64bbccbb in istack_create /mnt/data/hw07/istack.c:17
+    #2 0x55af64bbc4d8 in main /tmp/tmp.zZXxFdGmgo/balance_leak.c:35
+    #3 0x7f11b5e41ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+
+SUMMARY: AddressSanitizer: 56 byte(s) leaked in 2 allocation(s).

@@ -1,0 +1,5 @@
+// ( [ { are not counted
+/* } ) ] are not counted either */
+const char *str = "([{}]) escaped quote: \" }";
+char c = ')';
+{[]}
